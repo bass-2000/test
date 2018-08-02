@@ -15,12 +15,9 @@ import ru.sbtqa.tag.pagefactory.annotations.ActionTitle;
 import ru.sbtqa.tag.pagefactory.annotations.ElementTitle;
 import ru.sbtqa.tag.pagefactory.annotations.PageEntry;
 import ru.sbtqa.tag.pagefactory.exceptions.PageException;
-import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.*;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
-
-import java.awt.*;
 
 @PageEntry(title = "Яндекс Такси")
 public class YtMainPage extends Page {
@@ -45,7 +42,7 @@ public class YtMainPage extends Page {
     @FindBy(xpath = "//button[contains(@id,'datetimeSelect')]")
     private Button datetimeSelect;
 
-    @ElementTitle("вариант Через 10 минут")
+    @ElementTitle("Через 10 минут")
     @FindBy(xpath = "//div/span[contains(text(),'Через 10 минут')]/..")
     private Button afterTenMinutes;
 
@@ -53,7 +50,7 @@ public class YtMainPage extends Page {
     @FindBy(xpath = "//div/span[contains(text(),'На ближайшее время')]/..")
     private Button verySoon;
 
-    @ElementTitle("Поле выбора Требований")
+    @ElementTitle("требования")
     @FindBy(xpath = "//button[contains(@class,'button_preset_requirements')]")
     private Button buttonPresetRequirements;
 
@@ -85,13 +82,17 @@ public class YtMainPage extends Page {
     @FindBy(xpath = "//span[contains(text(),'Тарифы')]/..")
     private Link tariffs;
 
+    @ElementTitle("Бизнес")
+    @FindBy(xpath = "//span[contains(text(),'Бизнес от')]/..")
+    private Link businessTariff;
+
     @ElementTitle("кнопка Комментарий к заказу")
     @FindBy(xpath = "//span[contains(text(),'Комментарий к заказу')]/..")
     private Button commentButton;
 
     @ElementTitle("Комментарий к заказу")
     @FindBy(xpath = "//textarea[contains(@name,'comment')]")
-    private TextArea commentTextInput;
+    private TextBlock commentTextInput;
 
     @ElementTitle("кнопка выбора Тарифа")
     @FindBy(xpath = "//span[contains(@class, 'select_size_service-level')]/button")
